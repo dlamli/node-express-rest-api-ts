@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 
 import { corsMiddleware } from '../middlewares/cors.js';
 import { initMongoDBConnection } from '../db/config.js';
+import router from 'router/index.js';
 
 
 class Server {
@@ -32,7 +33,7 @@ class Server {
   }
 
   routes() {
-
+    this.#app.use('/', router());
   }
 
   init() {
